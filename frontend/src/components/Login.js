@@ -1,17 +1,16 @@
 //Importar libreria de materia ui
 import { Avatar, Box, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material'
-//Importar el hook useState para que la funcion componente se puede utilizar state
+//Importar hook useState para que la funcion componente se puede utilizar state
 import { useState } from 'react'
-
+//Importar hook useNavigate para saltar la ruta
 import { useNavigate } from 'react-router-dom'
-
+//Importar hook useDispatch para pasar una accion al store y actualizar estado e renderizar
 import { useDispatch } from 'react-redux'
-
+//Importar loginActions obtener los funciones definido en store para realizar su acciones
 import { loginActions } from '../store/storelogin'
 
 export default function Login() {
 
-    //Inicializar el estado
     const [text,setText] = useState({username:'', password:''})
 
     const dispatch = useDispatch()
@@ -57,10 +56,13 @@ export default function Login() {
                                                     //console.log(json)
                                                     //console.log(`nombre: ${json.data.nombre}`)
                                                     //console.log(`rol: ${json.data.rol}`)
+
+                                                    //Utilizar funcion de acciones definido en store, pasar los datos al store y actualizar estado e renderizar                
                                                     dispatch(loginActions.login({
                                                         name: json.data.nombre,
                                                         rol: json.data.rol
                                                     }))
+                                                    //Cambia de ruta al home
                                                     navigate('/home')
                                                 } else {
                                                     alert('usuario o password incorrecto')
