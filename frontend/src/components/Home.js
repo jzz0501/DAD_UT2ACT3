@@ -25,8 +25,8 @@ export default function Home() {
 
     return (
         <div>
-            <h1>Pagina de home</h1>
-            <Typography variant="h6">Nombre de usuario: {username} | Rol de usuario: {userRol}</Typography>
+            <Typography variant="h1">Pagina de home</Typography>
+            <Typography variant="h2">Nombre de usuario: {username} | Rol de usuario: {userRol}</Typography>
             <Button variant="contained" onClick={ () => {
                 //Realizar accion de logout
                 dispatch(loginActions.logout())
